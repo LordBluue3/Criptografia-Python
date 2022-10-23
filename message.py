@@ -1,4 +1,6 @@
 from datetime import date
+from random import random, randint
+
 
 class Code:
     def __init__(self, message, cryptography):
@@ -11,7 +13,8 @@ class Code:
     def encrypt(self):
 
         ascii_list = []
-        code_cript = []
+        ascii_cript = []
+        cript = []
         for letter in self.message:
 
             for ascii in range(32, 129):
@@ -25,10 +28,15 @@ class Code:
 
         for number in ascii_list:
             # criptografando cada numero da lista de ascii
-            code_cript.append(((int(number) - 32) + self.key) % 94)
+            ascii_cript.append(((int(number) - 32) + self.key) % 94)
         print("Lista de Ascii:", ascii_list)
+
+        a = str(ascii_cript)
+        chars = '[],'
+        ascii_clean = a.translate(str.maketrans('', '', chars))
+
         # retornando a mensagem criptografada
-        return code_cript
+        return ascii_clean
 
     def decrypt(self):
         chars = '[],'
