@@ -37,4 +37,4 @@ while True:
         print(message_descrypt)
 
     if events == 'Copiar':
-        pc.copy("Mensagem Descriptografada", message_encrypt)
+        pc.copy(message_encrypt)
